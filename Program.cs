@@ -16,92 +16,167 @@ namespace Program
         static void Exercicio1()
         {
             Console.WriteLine("-----Exercicio 1-----");
+            double valorRecebido = 576.73;
+            var contadorNota100 = 0;
+            var contadorNota50 = 0;
+            var contadorNota20 = 0;
+            var contadorNota10 = 0;
+            var contadorNota5 = 0;
+            var contadorNota2 = 0;
 
-            int anoDeNascimento = 0;
-            Console.WriteLine("Digite seu ano de nascimento(deverá conter 4 digitos): ");
-            anoDeNascimento = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; valorRecebido >= 2; i++)
+            {
+                if (valorRecebido > 100)
+                {
+                    valorRecebido -= 100;
+                    contadorNota100++;
+                }
+                else if (valorRecebido > 50)
+                {
+                    valorRecebido -= 50;
+                    contadorNota50++;
+                }
+                else if (valorRecebido > 20)
+                {
+                    valorRecebido -= 20;
+                    contadorNota20++;
+                }
+                else if (valorRecebido > 10)
+                {
+                    valorRecebido -= 10;
+                    contadorNota10++;
+                }
+                else if (valorRecebido > 5)
+                {
+                    valorRecebido -= 5;
+                    contadorNota5++;
+                }
+                else if (valorRecebido > 2)
+                {
+                    valorRecebido -= 2;
+                    contadorNota2++;
+                }
+            }
 
-            var anoAtual = DateTime.Today.Year;
-            var adicao = anoAtual - anoDeNascimento;
-
-            Console.WriteLine($"O ano de nascimento digitado foi {anoDeNascimento} sua idade é {adicao}");
+            Console.WriteLine($"{contadorNota100} notas de R$100,00");
+            Console.WriteLine($"{contadorNota50} notas de R$50,00");
+            Console.WriteLine($"{contadorNota20} notas de R$20,00");
+            Console.WriteLine($"{contadorNota10} notas de R$10,00");
+            Console.WriteLine($"{contadorNota5} notas de R$5,00");
+            Console.WriteLine($"{contadorNota2} notas de R$2,00");
         }
 
         static void Exercicio2()
         {
             Console.WriteLine("-----Exercicio 2-----");
 
-            Console.WriteLine("Digite 10 numeros inteiros: ");
-            var numeros = new int[10];
-            var soma = 0;
+            int valor1 = 7;
+            int valor2 = 14;
+            int valor3 = 106;
 
-            for (int i = 0; i < numeros.Length; i++)
+            if (valor1 > valor2 && valor1 > valor3)
             {
-                numeros[i] = Convert.ToInt32(Console.ReadLine());
-                soma = soma + numeros[i];
+                Console.WriteLine($"O valor {valor1} é o maior!");
             }
-            Console.WriteLine($"A soma dos numeros digitados é: {soma}");
+            else if (valor2 > valor1 && valor2 > valor3)
+            {
+                Console.WriteLine($"O valor {valor2} é o maior!");
+            }
+            else
+            {
+                Console.WriteLine($"O valor {valor3} é o maior!");
+            }
         }
 
         static void Exercicio3()
         {
             Console.WriteLine("-----Exercicio 3-----");
 
-            Console.WriteLine("Nome do Funcionário: ");
-            var funcionario = Console.ReadLine();
+            double nota1 = 7;
+            double nota2 = 8;
+            double nota3 = 3;
 
-            Console.WriteLine("Digite as horas trabalhadas: ");
-            var horasTrabalhadas = Convert.ToDouble(Console.ReadLine());
+            var somaNotas = nota1 + nota2 + nota3;
+            var mediaNotas = somaNotas / 3;
 
-            Console.WriteLine("Valor que Recebe por hora: ");
-            var valorPorHora = Convert.ToDouble(Console.ReadLine());
-
-            var multiplicacaoDeHorasTrabalhadasPorValor = horasTrabalhadas * valorPorHora;
-
-            Console.WriteLine($"O funcionário {funcionario}, trabalhou {horasTrabalhadas.ToString("F2")} e tem à receber {multiplicacaoDeHorasTrabalhadasPorValor.ToString("F2")}");
+            if (mediaNotas >= 7)
+            {
+                Console.WriteLine($"O Aluno tirou {mediaNotas:F1} e foi Aprovado.");
+            }
+            else
+            {
+                Console.WriteLine($"O Aluno tirou {mediaNotas:F1} e foi Reprovado.");
+            }
         }
 
         static void Exercicio4()
         {
             Console.WriteLine("-----Exercicio 4-----");
-            Console.WriteLine("Digite sua idade:");
-            var idade = Convert.ToInt32(Console.ReadLine());
 
-            var calculoEmDias = idade * 365;
-            var calculoEmMeses = idade * 12;
+            double nota1 = 10;
+            double nota2 = 8;
+            double nota3 = 9;
 
-            Console.WriteLine($"Sua idade é {idade}, você tem o total de {calculoEmDias} dias vividos e {calculoEmMeses} meses vividos.");
+            var somaNotas = nota1 + nota2 + nota3;
+            var mediaNotas = somaNotas / 3;
+
+            if (mediaNotas >= 9)
+            {
+                Console.WriteLine($"O Aluno tirou A. Parabéns!");
+            }
+            else if (mediaNotas >= 8)
+            {
+                Console.WriteLine($"O Aluno tirou B. Parabéns!");
+            }
+            else if (mediaNotas >= 7)
+            {
+                Console.WriteLine($"O Aluno tirou C. Pode Melhorar!");
+            }
+            else if (mediaNotas >= 6)
+            {
+                Console.WriteLine($"O Aluno tirou D.Precisa estudar mais!");
+            }
+            else if (mediaNotas < 6)
+            {
+                Console.WriteLine($"O Aluno tirou F. Reprovado!");
+            }
+
         }
 
         static void Exercicio5()
         {
             Console.WriteLine("-----Exercicio 5-----");
 
-            Console.WriteLine("Digite o valor em Real: ");
-            var valorRecebidoEmReal = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Digite seu salário: ");
+            double valorSalario = Convert.ToDouble(Console.ReadLine());
+            double percentual;
+            double valorSalarioAtualizado;
+            double reajusteValor;
 
-            var valorDolar = 4.86;
-            var valorEuro = 5.20;
-            var valorLibraEsterlina = 6.12;
-            var valorDolarCanadense = 3.88;
-            var valorPesoArgentino = 0.040;
-            var valorPesoChileno = 0.0059;
+            if (valorSalario >= 2000.00)
+            {
+                percentual = 4;
+            }
+            else if (valorSalario >= 1200.01)
+            {
+                percentual = 7;
+            }
+            else if (valorSalario >= 801)
+            {
+                percentual = 10;
+            }
+            else if (valorSalario >= 401)
+            {
+                percentual = 12;
+            }
+            else
+            {
+                percentual = 15;
+            }
 
-
-            var realParaDolar = valorRecebidoEmReal / valorDolar;
-            var realParaEuro = valorRecebidoEmReal / valorEuro;
-            var realParaLibraEsterlina = valorRecebidoEmReal / valorLibraEsterlina;
-            var realParaDolarCanadense = valorRecebidoEmReal / valorDolarCanadense;
-            var realParaPesoArgentino = valorRecebidoEmReal / valorPesoArgentino;
-            var realParaPesoChileno = valorRecebidoEmReal / valorPesoChileno;
-
-            Console.WriteLine($"O Valor R${valorRecebidoEmReal} equivale a: " +
-                $"\n{realParaDolar} Dólares" +
-                $"\n{realParaEuro} Euros" +
-                $"\n{realParaLibraEsterlina} Libras Esterlinas" +
-                $"\n{realParaDolarCanadense} Dolares Canadenses" +
-                $"\n{realParaPesoArgentino} Pesos Argentinos" +
-                $"\n{realParaPesoChileno} Pesos Chilenos");
+            reajusteValor = valorSalario * percentual / 100;
+            valorSalarioAtualizado = reajusteValor + valorSalario;
+            Console.WriteLine($"Novo salario {valorSalarioAtualizado.ToString("F2")} \nReajuste de {reajusteValor.ToString("F2")} \nEm Percentual {percentual}%");
         }
     }
 }
