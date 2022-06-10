@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodingGirlsProject;
+using System;
 
 namespace Program
 {
@@ -11,80 +12,73 @@ namespace Program
             Exercicio3();
             Exercicio4();
             Exercicio5();
+            
+            
         }
+
 
         static void Exercicio1()
         {
             Console.WriteLine("-----Exercicio 1-----");
-            double valorRecebido = 576.73;
-            var contadorNota100 = 0;
-            var contadorNota50 = 0;
-            var contadorNota20 = 0;
-            var contadorNota10 = 0;
-            var contadorNota5 = 0;
-            var contadorNota2 = 0;
+            int[] numeros = new int[10];
+            int[] numerosRecebidosDaMultiplicacao = new int[10];
+            var multiplicacao = 5;
 
-            for (int i = 0; valorRecebido >= 2; i++)
+            Console.WriteLine("Digite os 10 numeros: ");
+            for (int i = 0; i < 10; i++)
             {
-                if (valorRecebido > 100)
-                {
-                    valorRecebido -= 100;
-                    contadorNota100++;
-                }
-                else if (valorRecebido > 50)
-                {
-                    valorRecebido -= 50;
-                    contadorNota50++;
-                }
-                else if (valorRecebido > 20)
-                {
-                    valorRecebido -= 20;
-                    contadorNota20++;
-                }
-                else if (valorRecebido > 10)
-                {
-                    valorRecebido -= 10;
-                    contadorNota10++;
-                }
-                else if (valorRecebido > 5)
-                {
-                    valorRecebido -= 5;
-                    contadorNota5++;
-                }
-                else if (valorRecebido > 2)
-                {
-                    valorRecebido -= 2;
-                    contadorNota2++;
-                }
+                numeros[i] = Convert.ToInt32(Console.ReadLine());
+                numerosRecebidosDaMultiplicacao[i] = multiplicacao * numeros[i];
             }
-
-            Console.WriteLine($"{contadorNota100} notas de R$100,00");
-            Console.WriteLine($"{contadorNota50} notas de R$50,00");
-            Console.WriteLine($"{contadorNota20} notas de R$20,00");
-            Console.WriteLine($"{contadorNota10} notas de R$10,00");
-            Console.WriteLine($"{contadorNota5} notas de R$5,00");
-            Console.WriteLine($"{contadorNota2} notas de R$2,00");
+            Console.WriteLine("Numeros Recebidos: ");
+            for (int i = 0; i < numeros.Length; i++)
+            {
+                Console.Write($"{numeros[i]} ");
+            }
+            Console.WriteLine("\nNumeros Recebidos multiplicados por 5: ");
+            for (int i = 0; i < numerosRecebidosDaMultiplicacao.Length; i++)
+            {
+                Console.Write($"{numerosRecebidosDaMultiplicacao[i]} ");
+            }
         }
 
         static void Exercicio2()
         {
             Console.WriteLine("-----Exercicio 2-----");
+            int[] numerosRecebidos = new int[10];
+            int[] numerosPares = new int[10];
+            int[] numerosImpares = new int[10];
 
-            int valor1 = 7;
-            int valor2 = 14;
-            int valor3 = 106;
+            var controlePar = 0;
+            var controleImpar = 0;
 
-            if (valor1 > valor2 && valor1 > valor3)
+            Console.WriteLine("digite os numeros: ");
+
+            for (int i = 0; i < 10;i++)
             {
-                Console.WriteLine($"O valor {valor1} é o maior!");
+                numerosRecebidos[i] = Convert.ToInt32(Console.ReadLine());
+                
+
+                if (numerosRecebidos[i] % 2 == 0)
+                {
+                    numerosPares[controlePar] = numerosRecebidos[i];
+                    controlePar++;
+                }
+                else
+                {
+                    numerosImpares[controleImpar] = numerosRecebidos[i];
+                    controleImpar++;
+                }
             }
-            else if (valor2 > valor1 && valor2 > valor3)
+            Console.WriteLine("Os numeros pares são: ");
+            for (int i = 0; i < controlePar; i++)
             {
-                Console.WriteLine($"O valor {valor2} é o maior!");
+                Console.Write($"{numerosPares[i]} ");
             }
-            else
+            Console.WriteLine("\nOs numeros impares são: ");
+            for (int i = 0; i < controleImpar; i++)
             {
-                Console.WriteLine($"O valor {valor3} é o maior!");
+                Console.Write($"{numerosImpares[i]} ");
             }
         }
 
@@ -92,91 +86,105 @@ namespace Program
         {
             Console.WriteLine("-----Exercicio 3-----");
 
-            double nota1 = 7;
-            double nota2 = 8;
-            double nota3 = 3;
+            string[] palavras = new string[5];
+            Console.WriteLine("Digite 5 palavras: ");
 
-            var somaNotas = nota1 + nota2 + nota3;
-            var mediaNotas = somaNotas / 3;
+            string[] palavrasOrdemCumprimento = new string[5];
 
-            if (mediaNotas >= 7)
+            for (int i = 0; i < palavras.Length; i++)
             {
-                Console.WriteLine($"O Aluno tirou {mediaNotas:F1} e foi Aprovado.");
+                palavras[i] = Console.ReadLine();
             }
-            else
+            palavrasOrdemCumprimento = palavras.OrderBy(_=>_.Length).ToArray();
+            Console.WriteLine("As palavras em ordem de tamanho, do menor para a maior palavra (mais cumprida): ");
+            for (int i = 0; i < palavrasOrdemCumprimento.Length; i++)
             {
-                Console.WriteLine($"O Aluno tirou {mediaNotas:F1} e foi Reprovado.");
+                Console.WriteLine(palavrasOrdemCumprimento[i]);
             }
+
         }
 
         static void Exercicio4()
         {
             Console.WriteLine("-----Exercicio 4-----");
+            string jogarNovamente;
+            do
+            {
+                Console.WriteLine("Quantas rodadas você quer jogar: ");
+                int numeroDeRodadas = Convert.ToInt32(Console.ReadLine());
+                string minhaJogada;
+                Random rdm = new Random();
+                string jogadaDoComputador;
+                string[] jogadas = { "pedra", "papel", "tesoura" };
+                int contadorDeVitoriasDoJogador = 0;
+                int contadorDeVitoriasDoComputador = 0;
 
-            double nota1 = 10;
-            double nota2 = 8;
-            double nota3 = 9;
 
-            var somaNotas = nota1 + nota2 + nota3;
-            var mediaNotas = somaNotas / 3;
+                for (int i = 0; i < numeroDeRodadas; i++)
+                {
+                    Console.WriteLine("Escolha pedra, papel ou tesoura");
+                    minhaJogada = Console.ReadLine();
+                    jogadaDoComputador = jogadas[rdm.Next(0, 2)];
+                    Console.WriteLine($" O computador jogou {jogadaDoComputador}");
 
-            if (mediaNotas >= 9)
-            {
-                Console.WriteLine($"O Aluno tirou A. Parabéns!");
-            }
-            else if (mediaNotas >= 8)
-            {
-                Console.WriteLine($"O Aluno tirou B. Parabéns!");
-            }
-            else if (mediaNotas >= 7)
-            {
-                Console.WriteLine($"O Aluno tirou C. Pode Melhorar!");
-            }
-            else if (mediaNotas >= 6)
-            {
-                Console.WriteLine($"O Aluno tirou D.Precisa estudar mais!");
-            }
-            else if (mediaNotas < 6)
-            {
-                Console.WriteLine($"O Aluno tirou F. Reprovado!");
-            }
+                    if (minhaJogada == "pedra" && jogadaDoComputador == "tesoura")
+                    {
+                        Console.WriteLine("você ganhou esta rodada!");
+                        contadorDeVitoriasDoJogador++;
+                    }
+                    else if (minhaJogada == "tesoura" && jogadaDoComputador == "papel")
+                    {
+                        Console.WriteLine("você ganhou esta rodada!");
+                        contadorDeVitoriasDoJogador++;
+                    }
+                    else if (minhaJogada == "papel" && jogadaDoComputador == "pedra")
+                    {
+                        Console.WriteLine("você ganhou esta rodada!");
+                        contadorDeVitoriasDoJogador++;
+                    }
+                    else if (minhaJogada == "pedra" && jogadaDoComputador == "pedra")
+                    {
+                        Console.WriteLine("Empate!");
+                    }
+                    else if (minhaJogada == "tesoura" && jogadaDoComputador == "tesoura")
+                    {
+                        Console.WriteLine("Empate!");
+                    }
+                    else if (minhaJogada == "papel" && jogadaDoComputador == "papel")
+                    {
+                        Console.WriteLine("Empate!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ponto do Computador!");
+                        contadorDeVitoriasDoComputador++;
+                    }
+                }
+                Console.WriteLine($" você fez {contadorDeVitoriasDoJogador} pontos!");
+                Console.WriteLine($" o computador fez {contadorDeVitoriasDoComputador}");
 
+                if (contadorDeVitoriasDoComputador > contadorDeVitoriasDoJogador)
+                {
+                    Console.WriteLine("Computador Venceu!");
+                }
+                else if (contadorDeVitoriasDoComputador == contadorDeVitoriasDoJogador)
+                {
+                    Console.WriteLine("Empate!");
+                }
+                else
+                {
+                    Console.WriteLine("Parabéns pela vitória!!!");
+                }
+                Console.WriteLine("voce quer jogar novamente?");
+                jogarNovamente = Console.ReadLine();
+            } while (jogarNovamente == "sim");
         }
 
         static void Exercicio5()
         {
             Console.WriteLine("-----Exercicio 5-----");
+            new JogoDaVelha().Iniciar();
 
-            Console.WriteLine("Digite seu salário: ");
-            double valorSalario = Convert.ToDouble(Console.ReadLine());
-            double percentual;
-            double valorSalarioAtualizado;
-            double reajusteValor;
-
-            if (valorSalario >= 2000.00)
-            {
-                percentual = 4;
-            }
-            else if (valorSalario >= 1200.01)
-            {
-                percentual = 7;
-            }
-            else if (valorSalario >= 801)
-            {
-                percentual = 10;
-            }
-            else if (valorSalario >= 401)
-            {
-                percentual = 12;
-            }
-            else
-            {
-                percentual = 15;
-            }
-
-            reajusteValor = valorSalario * percentual / 100;
-            valorSalarioAtualizado = reajusteValor + valorSalario;
-            Console.WriteLine($"Novo salario {valorSalarioAtualizado.ToString("F2")} \nReajuste de {reajusteValor.ToString("F2")} \nEm Percentual {percentual}%");
         }
     }
 }
