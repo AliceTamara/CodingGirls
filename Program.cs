@@ -12,10 +12,7 @@ namespace Program
             Exercicio3();
             Exercicio4();
             Exercicio5();
-            
-            
         }
-
 
         static void Exercicio1()
         {
@@ -101,7 +98,6 @@ namespace Program
             {
                 Console.WriteLine(palavrasOrdemCumprimento[i]);
             }
-
         }
 
         static void Exercicio4()
@@ -184,7 +180,6 @@ namespace Program
         {
             Console.WriteLine("-----Exercicio 5-----");
             new JogoDaVelha().Iniciar();
-
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿
-
-namespace CodingGirlsProject
+﻿namespace CodingGirlsProject
 {
     internal class JogoDaVelha
     {
@@ -27,7 +25,6 @@ namespace CodingGirlsProject
                 VerificarFimDoJogo();
                 MudarVez();
             }
-
         }
 
         private void RenderizarTabela()
@@ -41,8 +38,8 @@ namespace CodingGirlsProject
             return ($"__{posicoes[0]}__|__{posicoes[1]}__|__{ posicoes[2]}__\n" +
                    $"__{ posicoes[3]}__|__{ posicoes[4]}__|__{ posicoes[5]}__\n" +
                    $"  { posicoes[6]}  |  { posicoes[7]}  |  { posicoes[8]}  \n\n");
-
         }
+
         private void LerEscolhaDoUsuario()
         {
             Console.WriteLine($"Agora é a vez de {vez}, entre uma posição de 1 a 9 que esteja disponivel na tabela");
@@ -70,7 +67,8 @@ namespace CodingGirlsProject
                 var indice = posicaoEscolhida - 1;
 
                 return posicoes[indice] != 'O' && posicoes[indice]!= 'X';
-        }           
+        }   
+        
         private void VerificarFimDoJogo()
         {
             if (quantidadePreenchida < 5)
@@ -86,7 +84,7 @@ namespace CodingGirlsProject
             if (quantidadePreenchida is 9)
             {
                 fimDeJogo = true;
-                Console.WriteLine("Fim de Jogo!!! EMPATE");
+                Console.WriteLine("Fim de Jogo!!! DEU VELHA");
             }
         }
 
@@ -115,13 +113,10 @@ namespace CodingGirlsProject
 
             return vitorialinha1 || vitorialinha2;
         }
+
         private void MudarVez()
         {
             vez = vez == 'X' ? 'O' : 'X';   
         }
-
-
     }
-
-
 }
