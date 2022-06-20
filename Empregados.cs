@@ -6,36 +6,38 @@ using System.Threading.Tasks;
 
 namespace CodingGirlsProject
 {
-    internal class Empregados
+    public class Empregados
     {
-        public string Nome { get; set; }
+        public string Nome { get; private set; }
+        public string Cargo { get; private set; }
+        public double SalarioMensal { get; private set; }
 
-        public Empregados(string nome)
+        public Empregados(string nome, string cargo, double salarioMensal)
         {
             Nome = nome;
-            Console.WriteLine(nome);
+            Cargo = cargo;
+            SalarioMensal = salarioMensal;
         }
 
-        public string Cargo { get; set; }
-
-        public double SalarioMensal { get; set; }
-
-        public double AumentarSalario(double salarioComAumento)
+        public void ZerarSalarioQuandoNegativo()
         {
-            if (SalarioMensal <= 0)
-                salarioComAumento = 0.0;
-            else if (SalarioMensal <= 400.00)
-                salarioComAumento = SalarioMensal * 1.5 + SalarioMensal;
+            if (SalarioMensal < 0)
+            {
+                SalarioMensal = 0;
+            }
+        }
+        public void AumentarSalario()
+        {
+            if (SalarioMensal <= 400.00 && SalarioMensal > 0)
+                SalarioMensal = SalarioMensal * 1.15;
             else if (SalarioMensal <= 800.00)
-                salarioComAumento = SalarioMensal * 1.2 + SalarioMensal;
+                SalarioMensal = SalarioMensal * 1.12;
             else if (SalarioMensal <= 1200.00)
-                salarioComAumento = SalarioMensal * 1.0 + SalarioMensal;
+                SalarioMensal = SalarioMensal * 1.1;
             else if (SalarioMensal <= 2000.00)
-                salarioComAumento = SalarioMensal * 0.07 + SalarioMensal;
+                SalarioMensal = SalarioMensal * 0.07;
             else
-                salarioComAumento = SalarioMensal * 0.04 + SalarioMensal;
-            return salarioComAumento;
+                SalarioMensal = SalarioMensal * 0.04;
         }
     }
-    
 }
