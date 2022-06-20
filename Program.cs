@@ -1,5 +1,4 @@
 ﻿using CodingGirlsProject;
-using System;
 
 namespace Program
 {
