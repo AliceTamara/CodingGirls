@@ -1,25 +1,42 @@
 ﻿namespace CodingGirlsProject
 {
-    public class Aluno
+    internal class Aluno
     {
-        public string Nome { get; set; }
-        public int Matricula { get; set; }
-        public double NotaProva1 { get; set; }
-        public double NotaProva2 { get; set; }
-        public double NotaTrabalho { get; set; }
-        public double NotaProvaFinal { get; set; }
+        public int Codigo { get; private set; }
 
-        public void CalcularMedia()
+        private string _nome;
+        private double[] _notas;
+        private int _frequencia;
+
+        private List<Aluno> _alunos = new List<Aluno>();
+
+        public Aluno(int codigo, string nome, int frequencia)
         {
-            var media = (NotaProva1 + NotaProva2 + NotaTrabalho + NotaProvaFinal) / 4;
-            Console.WriteLine(media);
+            Codigo = codigo;
+            _nome = nome;
+            _frequencia = frequencia;
+
+            _alunos.Add(this);
         }
 
-        public void CalcularNotaProvaFinalNecessaria()
+        public void Cadastrar(Aluno aluno)
         {
-            var notaDeCorte = 7;
-            var notaMinimaParaProvaFinal = notaDeCorte * 4 - NotaProva1 - NotaProva2 - NotaTrabalho;
-            Console.WriteLine(notaMinimaParaProvaFinal);
+            _alunos.Add(aluno);
+        }
+
+        public Aluno ConsultarPorCodigo(int codigo)
+        {
+            return _alunos.Where(_ => _.Codigo == codigo).FirstOrDefault();
+        }
+
+        public List<Aluno> Consultar()
+        {
+            return _alunos;
+        }
+
+        public void AdicionarNotas(double[] notas)
+        {
+            _notas = notas;
         }
     }
 }
