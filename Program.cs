@@ -15,72 +15,21 @@ namespace Program
 
         static void Exercicio1()
         {
-            Console.WriteLine("-----Exercicio 1-----");
 
-            var nome = "Gilberto";
-            var apelido = "Giba";
-            var numero = 10;
-            var pontosDeHabilidade = 90;
-            var cartoes = string.Empty;
-            var suspenso = false;
-            var posicao = "Atacante";
+            var triangulo = new Triangulo();
+            triangulo.CalcularArea();
 
-            var jogador = new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao);
+            var circulo = new Circulo();
+            circulo.CalcularArea();
 
-            jogador.EstaApto();
-            jogador.TornarJogadorSuspenso();
-            jogador.CumprirSuspensao();
-            jogador.SofrerLesao();
+            var quadrado = new Quadrado();
+            quadrado.CalcularArea();
 
-            var nomeTimeCasa= "Brasil";
-            var fundacaoTimeCasa = "bradesco";
-            var jogadoresTimeCasa = new List<Jogador>()
-            {
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao)
-            };
+            var trapezio = new Trapezio();
+            trapezio.CalcularArea();
 
-            var timeCasa = new Time(nomeTimeCasa, fundacaoTimeCasa, jogadoresTimeCasa);
-            timeCasa.ImprimirEscala();
-
-            var nomeTimeVisitante = "Chile";
-            var fundacaoTimeVisitante = "Santander";
-            var jogadoresTimeVisitante = new List<Jogador>()
-            {
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao),
-                new Jogador(nome, apelido, numero, pontosDeHabilidade, cartoes, suspenso, posicao)
-            };
-
-            var timeVisitante = new Time(nomeTimeVisitante, fundacaoTimeVisitante, jogadoresTimeVisitante);
-            timeVisitante.ImprimirEscala();
-
-            var dataDoJogo = DateTime.Now;
-            var cidade = "São Bernardo do Campo";
-            var placarTimeDaCasa = 10;
-            var placarTimeVisitante = 8;
-
-            var jogo = new Jogo(timeCasa, timeVisitante, dataDoJogo, cidade, placarTimeDaCasa, placarTimeVisitante);
-
-            jogo.VerificarEquipeComMaisChanceDeVitoria();
-            jogo.GerarLesaoAleatoriaEmAlgumJogador();
-            jogo.TerminarPartida();
-            jogo.PermitirTreinoAposTermino();
+            var losango = new Losango();
+            losango.CalcularArea();
         }
 
         static void Exercicio2()
